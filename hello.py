@@ -6,9 +6,13 @@ app = Flask(__name__)
 def hello():
     content = "Hello World!更新するよ！！！"
 
-    env_value = os.getenv('APP_NAME')
-    if env_value is not None:
-        content += ' / [app_name] ' + env_value
+    app_name = os.getenv('APP_NAME')
+    if app_name is not None:
+        content += ' / [app_name] ' + app_name
+
+    password = os.getenv('PASSWORD')
+    if password is not None:
+        content += ' / [password] ' + password
 
     return content
 

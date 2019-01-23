@@ -17,3 +17,14 @@ spec:
         image: asia.gcr.io/research-tskzh/gke-test:latest
         ports:
         - containerPort: 5000
+        env:
+          - name: APP_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: hello-config
+                key: app_name
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: hello-secrets
+                key: password
