@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: hello
 spec:
-  strategy:
-    type: Recreate
   replicas: 2
   selector:
     matchLabels:
