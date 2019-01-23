@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: hello
 spec:
+  strategy:
+    type: Recreate
   replicas: 2
   selector:
     matchLabels:
@@ -11,6 +13,9 @@ spec:
     metadata:
       labels:
         app: hello
+      annotations:
+        hello-config-hash: "${HELLO_CONFIG_HASH}"
+        hello-secrets-hash: "${HELLO_SECRETS_HASH}"
     spec:
       containers:
       - name: hello-flask
