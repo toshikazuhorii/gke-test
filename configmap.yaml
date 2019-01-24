@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: hello-config
 data:
-  app_name: hello-v4.app
+  app_name: hello.app

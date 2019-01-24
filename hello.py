@@ -6,10 +6,12 @@ app = Flask(__name__)
 def hello():
     content = "Hello World!更新するよ！！！"
 
+    # ConfigMapリソースのデータを参照
     app_name = os.getenv('APP_NAME')
     if app_name is not None:
         content += ' / [app_name] ' + app_name
 
+    # Secretリソースのデータを参照
     password = os.getenv('PASSWORD')
     if password is not None:
         content += ' / [password] ' + password
